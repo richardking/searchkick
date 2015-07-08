@@ -179,7 +179,8 @@ module Searchkick
             if below12
               {script_score: {script: "#{value[:factor].to_f} * log(doc['#{field}'].value + 2.718281828)"}}
             else
-              {field_value_factor: {field: field, factor: value[:factor].to_f, modifier: "ln2p"}}
+              modifier = value.fetch(:modifier) { "ln2p" }
+              {field_value_factor: {field: field, factor: value[:factor].to_f, modifier: modifier}}
             end
 
           custom_filters << {

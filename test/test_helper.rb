@@ -53,6 +53,7 @@ if defined?(Mongoid)
     field :orders_count, type: Integer
     field :price, type: Integer
     field :color
+    field :found_pct, type: BigDecimal
     field :latitude, type: BigDecimal
     field :longitude, type: BigDecimal
     field :description
@@ -92,6 +93,7 @@ elsif defined?(NoBrainer)
     field :orders_count, type: Integer
     field :price,        type: Integer
     field :color,        type: String
+    field :found_pct
     field :latitude
     field :longitude
     field :description,  type: String
@@ -137,6 +139,7 @@ else
     t.integer :orders_count
     t.integer :price
     t.string :color
+    t.decimal :found_pct
     t.decimal :latitude, precision: 10, scale: 7
     t.decimal :longitude, precision: 10, scale: 7
     t.text :description
